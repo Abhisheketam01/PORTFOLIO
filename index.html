@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhishek.e47 | Portfolio</title>
+  <style>
+/* 1. DEFINE VARIABLES FOR THE SYSTEM */
+:root {
+  /* Default Dark Mode Colors */
+  --bg-color: #12110E;
+  --text-main: rgb(245, 240, 240);
+  --text-sub: #8c8880;
+  --accent-dot: rgb(204, 116, 0);
+  --nav-sub-text: white;
+}
+
+/* 2. FLIP VALUES FOR LIGHT MODE */
+body.light-theme {
+  --bg-color: #f5f4f0;       /* Light cream background */
+  --text-main: #12110e;      /* Dark text */
+  --text-sub: #6e6b64;       /* Muted dark grey text */
+  --accent-dot: rgb(230, 90, 0); /* Vibrant orange for light mode */
+  --nav-sub-text: #12110e;   /* Dark text for e47 brand */
+}
+
+/* 3. APPLY VARIABLES TO ALL ELEMENTS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: monospace;
+  color: var(--text-main);
+  overflow-x: hidden;
+  /* This transitions ALL color properties smoothly when flipping themes */
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.nav-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
+
+.brand {
+  font-size: 30px;
+}
+
+.brand .name-text {
+  color: var(--text-main);
+}
+
+.brand .dot {
+  color: var(--accent-dot);
+  font-weight: bolder;
+  font-size: 50px;
+  line-height: 0;
+}
+
+.brand .sub-text {
+  color: var(--nav-sub-text);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  font-size: 30px;
+}
+
+.nav-item {
+  color: var(--text-sub); 
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 4px;
+  border-bottom: 3px solid transparent; 
+  transition: color 1.5s ease, border-color 1.5s ease;
+  cursor: pointer;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: var(--text-main) !important;
+  border-bottom-color: var(--text-main) !important;
+}
+
+.theme-toggle {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+  font-size: 30px;
+  color: var(--text-sub);
+  transition: transform 0.3s ease;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.page-section {
+  display: none; 
+}
+
+.page-section.active {
+  display: block; 
+}
+
+.hero-title {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: var(--text-main);
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Persistent Sticky Navbar: Stays the same across your entire site layout -->
+  <nav class="nav-name">
+    <div class="brand">
+      <span class="name-text">Abhishek</span><span class="dot">.</span><span class="sub-text">e47</span>
+    </div>
+
+    <div class="nav-menu">
+      <!-- data-target ties each link tag to its respective hero container element below -->
+      <a data-target="about" class="nav-item active">about</a>
+      <a data-target="work" class="nav-item">work</a>
+      <a data-target="projects" class="nav-item">projects</a>
+      <a data-target="Contact" class="nav-item">Contact</a>
+      <button class="theme-toggle">◐</button>
+    </div>
+  </nav>
+
+  <!-- Main Variable Hero Section Wrapper Content Area -->
+  <main class="content-container">
+
+    <!-- About Section (Visible on load) -->
+    <section id="about" class="page-section active">
+      <h1 class="hero-title">Hey, I'm Abhishek 👋</h1>
+      <p style="color: #8c8880; font-size: 20px; line-height: 1.6;">
+        Welcome to my about profile space. I am a software designer building clean terminal UI templates.
+      </p>
+    </section>
+
+    <!-- Work Section (Hidden on load) -->
+    <section id="work" class="page-section">
+      <h1 class="hero-title">Professional Work Experience</h1>
+      <p style="color: #8c8880; font-size: 20px; line-height: 1.6;">
+        Details regarding internships, technical roles, and business solutions will go right here.
+      </p>
+    </section>
+
+    <!-- Projects Section (Hidden on load) -->
+    <section id="projects" class="page-section">
+      <h1 class="hero-title">Personal Code Repositories</h1>
+      <p style="color: #8c8880; font-size: 20px; line-height: 1.6;">
+        A showroom grid for compiler code tools, scripts, and production server systems.
+      </p>
+    </section>
+
+    <!-- Photography Section (Hidden on load) -->
+    <section id="Contact" class="page-section">
+      <h1 class="hero-title">Shots & Captures</h1>
+      <p style="color: #8c8880; font-size: 20px; line-height: 1.6;">
+        Visual collection array displaying structural frames, light perspectives, and assets.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Lightweight State Routing Script -->
+  <script>
+    const navLinks = document.querySelectorAll('.nav-menu .nav-item');
+    const sections = document.querySelectorAll('.page-section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // 1. Remove the active white underline look from all navigation menu tabs
+        navLinks.forEach(item => item.classList.remove('active'));
+
+        // 2. Add the active white underline look to the specific option tab clicked
+        link.classList.add('active');
+
+        // 3. Hide all the main background hero display text view containers
+        sections.forEach(section => section.classList.remove('active'));
+
+        // 4. Extract the matching target panel name attribute block reference code
+        const targetId = link.getAttribute('data-target');
+
+        // 5. Instantly reveal the corresponding text section on screen layout
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+          // 1. Grab the theme toggle button element
+      const themeBtn = document.querySelector('.theme-toggle');
+
+      // 2. Listen for a click on the theme button
+      themeBtn.addEventListener('click', () => {
+
+        // 3. Toggle the 'light-theme' class on the body tag
+        document.body.classList.toggle('light-theme');
+
+        // 4. Fun extra: Rotate the icon slightly when clicked
+        if (document.body.classList.contains('light-theme')) {
+          themeBtn.style.transform = 'rotate(180deg)';
+        } else {
+          themeBtn.style.transform = 'rotate(0deg)';
+        }
+      });
+  </script>
+
+</body>
+
+</html>

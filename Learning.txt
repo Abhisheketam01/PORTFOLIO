@@ -1,0 +1,54 @@
+  <script>
+    const navLinks = document.querySelectorAll('.nav-menu .nav-item');
+    const sections = document.querySelectorAll('.page-section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // 1. Remove the active white underline look from all navigation menu tabs
+        navLinks.forEach(item => item.classList.remove('active'));
+
+        // 2. Add the active white underline look to the specific option tab clicked
+        link.classList.add('active');
+
+        // 3. Hide all the main background hero display text view containers
+        sections.forEach(section => section.classList.remove('active'));
+
+        // 4. Extract the matching target panel name attribute block reference code
+        const targetId = link.getAttribute('data-target');
+
+        // 5. Instantly reveal the corresponding text section on screen layout
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+  </script>
+
+
+[ START: Page Loads ]
+  │
+  ├── 1. SETUP: JavaScript searches the HTML document.
+  │             - Grabs all 4 navigation links and saves them as a list ("navLinks").
+  │             - Grabs all 4 page sections and saves them as a list ("sections").
+  │
+  ├── 2. LISTEN: JavaScript places an invisible guard over each of the 4 links.
+  │              - The guards stand by silently, waiting for a human to click.
+  │
+[ USER CLICKS A LINK ] (e.g., clicks "work")
+  │
+  ├── 3. FREEZE: "e.preventDefault()" stops the browser from doing its default action
+  │              (prevents the page from refreshing or jumping around).
+  │
+  ├── 4. RESET: JavaScript does a clean sweep of the entire page:
+  │             - Loops through all links and removes the white underline class ("active").
+  │             - Loops through all sections and hides them from view ("active" removed).
+  │
+  ├── 5. HIGHLIGHT: JavaScript targets the exact link you just clicked.
+  │                 - Adds the "active" class to it, making it turn white with an underline.
+  │
+  ├── 6. READ: JavaScript looks at the clicked link's HTML metadata.
+  │            - It reads the "data-target" attribute to see the word "work".
+  │
+  └── 7. REVEAL: JavaScript searches the page for the section with id="work".
+                 - Adds the "active" class to that section.
+                 - CSS triggers "display: block", and the work section appears!
