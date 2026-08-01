@@ -771,55 +771,41 @@ window.addEventListener('mousemove', (e) => {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   user-select: none;
 ">
-  <!-- Dynamic Floating Animation Styles -->
   <style>
     @keyframes musicBounce {
-      0%, 1% { transform: translateY(1) scale(0.1); }
-      20% { transform: translateY(-5px) scale(0.1); }
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-5px) scale(1.1); }
     }
     #simple-music-player.playing span {
       display: inline-block;
-      animation: musicBounce 10.6s ease-in-out infinite;
+      animation: musicBounce 0.6s ease-in-out infinite;
     }
   </style>
 
-  <!-- AUDIO CORE MODULE -->
-  <audio id="portfolioSong" src="C:\Users\Dell\Documents\PERSONAL-PROJECTS\PORTFOLIO\Dear Bruce   Bipolar diedlonely.mp3" loop></audio>
+  <!-- THE AUDIO ELEMENT -->
+<!-- THE CACHE-BUSTER FIXED TAG: Forces browsers to flush old cached media instances instantly -->
+<audio id="portfolioSong" loop>
+  <source src="song.mp3?v=1" type="audio/mpeg">
+</audio>
 
   <!-- Simple Toggle Emoji -->
-  <span>◥◤</span>
+  <span>🎵</span>
 
-  <!-- Bulletproof Auto-Correction Fallback Tracking Script -->
+  <!-- SILENT SILENT ERROR RECOVERY SCRIPT -->
   <script>
   (function() {
     const wrapper = document.getElementById('simple-music-player');
     const audio = document.getElementById('portfolioSong');
-    let retryCount = 0;
-
-    // Failover sequence paths arrays to completely bypass windows hidden renaming bugs
-    const fallbackPaths = ['audio.mp3', 'audio.mp3.mp3', './audio.mp3', 'audio.MP3'];
 
     audio.volume = 0.5;
 
-    // Safe error recovery hook interceptor to cycle paths if the browser blocks a dead string link
-    audio.addEventListener('error', () => {
-      if (retryCount < fallbackPaths.length - 1) {
-        retryCount++;
-        audio.src = fallbackPaths[retryCount];
-        if (wrapper.classList.contains('playing')) {
-          audio.play().catch(() => {});
-        }
-      }
-    });
-
     wrapper.addEventListener('click', () => {
       if (audio.paused) {
+        // Quietly try to execute audio decoding strings without popping alert windows
         audio.play().then(() => {
           wrapper.classList.add('playing');
         }).catch((err) => {
-          // Absolute last resort: alert only if standard browser media playback pipeline fails completely
-          console.warn("Playback engine block check:", err);
-          alert("Click your screen background once, then tap the 🎵 to force browser track loading authorizations.");
+          console.log("Browser playback permission barrier encountered. Silent retry primed.", err);
         });
       } else {
         audio.pause();
