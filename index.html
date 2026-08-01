@@ -136,7 +136,7 @@
 <body>
 
   <!-- Persistent Sticky Navbar: Stays the same across your entire site layout -->
-  <div style=" box-shadow: 0 2px 5px 0 rgba(106, 104, 104, 0.2);  ">
+  <div style=" box-shadow: 0 2px 5px 0 rgba(106, 104, 104, 0.2); ">
     <nav class="nav-name">
       <div class="brand">
         <span class="name-text">Abhishek</span><span class="dot">.</span><span class="sub-text">E</span>
@@ -148,7 +148,7 @@
         <a data-target="work" class="nav-item">work</a>
         <a data-target="projects" class="nav-item">projects</a>
         <a data-target="contact" class="nav-item">contact</a>
-        <button class="theme-toggle">◐</button>
+        <button class="theme-toggle" style="padding-top: 1px;">◐</button>
       </div>
     </nav>
   </div>
@@ -206,7 +206,7 @@
           </style>
         </div>
         <!-- Your Text Content Element -->
-        <div style="padding-bottom: 5px; Color: #6e6b64">Currently working from Heaven 🪽 </div>
+        <div style="padding-bottom: 5px; Color: #6e6b64">Currently working in Rodl & Partners. </div>
       </div>
 
       <!-- Main container managing the row space -->
@@ -365,9 +365,9 @@
 
       <!-- this div is for education and all  -->
 
-      <div style="display: flex; align-items: left;" >
+      <div style="display: flex; align-items: left; box-shadow: #12110E;" >
         <div>
-          <p style="font-size:30px; color: #6e6b64;">EDUCATION</p>
+          <p style="font-size:30px; color: #6e6b64; font-family: monospace; letter-spacing: 0.1em">EDUCATION</p>
           <br>
 
           <br>
@@ -379,7 +379,7 @@
           <br>
 
           <p style="font-size: 30px;" >Highschool</p>
-          <p  style="font-size: 22px;  Color: #6e6b64; padding-top:15px" >Netaji Highschool, Pune · 2024</p>
+          <p  style="font-size: 22px;  Color: #6e6b64; padding-top:15px;" >Netaji Highschool, Pune · 2024</p>
         </div>
       </div>
 
@@ -388,19 +388,345 @@
       <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.07); /* Clean, subtle low-opacity white line */
       margin: 60px 0;/* Gives clean breathing room top & bottom */ 
       width: 100% ">
+    
+    <!-- radar -->
+  <p style="font-size: 29px; letter-spacing: 0.1em; color: #6e6b64; margin-bottom: 48px;">STACK</p>
+<!-- STACK RADAR SECTION -->
+<!-- STACK RADAR CONTAINER SECTION -->
+<div style="
+font-size: xx-large;
+  position: relative; 
+  width: 100%; 
+  max-width: 1000px; 
+  margin: 0 auto; 
+  font-family: monospace; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+">
+  <!-- Radar Area - Beautifully scaled up to 600px -->
+  <div style="position: relative; width: 600px; height: 600px; flex-shrink: 0;">
+    <canvas id="radarCanvas" width="600" height="600" style="display:block;"></canvas>
+    
+    <!-- Mini Numeric Floating Tooltip -->
+    <div id="radarTooltip" style="
+      position: absolute;
+      background: var(--bg-color, #0b0b0b);
+      border: 1px solid var(--text-main, rgba(255, 255, 255, 0.1));
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 18px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.1s ease;
+      white-space: nowrap;
+      z-index: 20;
+      color: var(--text-main, #ffffff);
+    "></div>
+  </div>
+
+  
+
+  <!-- THE SKILL DETAIL HOVER FLOATING CARD -->
+  <div id="skillDetail" style="
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(15px, 15px);
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+    width: 340px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    z-index: 100;
+  ">
 
 
 
+    <p id="detailTitle" style="
+      font-size: 18px; 
+      font-weight: 600; 
+      color: #ffffff; 
+      margin: 0 0 14px 0; 
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    "></p>
+    <div id="detailTags" style="
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 8px 6px;
+    "></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const axes = [
+    { 
+      label: 'DevOps', score: 7, 
+      tools: [
+        { name: 'AWS', icon: '☁️' },
+        { name: 'Docker', icon: '🐳' },
+        { name: 'GitHub Actions', icon: '🚀' },
+        // { name: 'Linux', icon: '🐧' }
+      ] 
+    },
+    { 
+      label: 'Back-end', score: 9, 
+      tools: [
+        // { name: 'Go', icon: '🐹' },
+        { name: 'FastAPI', icon: '⚡' },
+        { name: 'Node.js', icon: '🟢' },
+        { name: 'Express', icon: '🚂' },
+        // { name: 'Flask', icon: '🌶️' },
+        { name: 'REST API', icon: '🔗' }
+      ] 
+    },
+    { 
+      label: 'Front-end', score: 8, 
+      tools: [
+        { name: 'React', icon: '⚛️' },
+        { name: 'Next.js', icon: '▲' },
+        // { name: 'Redux', icon: '🟣' },
+        { name: 'TypeScript', icon: '🔷' },
+        { name: 'JavaScript', icon: '🟨' }
+      ] 
+    },
+    { 
+      label: 'Programming', score: 9, 
+      tools: [
+        { name: 'Python', icon: '🐍' },
+        { name: 'C++', icon: '🔵' },
+        { name: 'Java', icon: '☕' },
+        // { name: 'Go', icon: '🐹' }
+      ] 
+    },
+    { 
+      label: 'Data', score: 8, 
+      tools: [
+        { name: 'MongoDB', icon: '🍃' },
+        { name: 'Postgres', icon: '🐘' },
+        { name: 'MySQL', icon: '🐬' },
+        { name: 'Redis', icon: '🟥' },
+        { name: 'ClickHouse', icon: '📊' }
+      ] 
+    }
+  ];
+
+  const canvas = document.getElementById('radarCanvas');
+  const ctx = canvas.getContext('2d');
+  
+  // ADJUSTED GEOMETRY: Center at 300, Radius scaled to 190 leaves plenty of breathing room for text labels
+  const cx = 300, cy = 300, R = 200, N = axes.length;
+  const accent = '#cc7400';
+
+  function getColors() {
+    const isDark = !document.body.classList.contains('light-theme');
+    return {
+      grid: isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,1)',
+      label: isDark ? 'rgba(255,255,255,1)' : 'rgba(0,0,0,1)',
+      labelActive: isDark ? '#ffffff' : '#000000',
+      fill: isDark ? 'rgba(204,116,0,0.2)' : 'rgba(204,116,0,0.15)',
+    };
+  }
+
+  function angle(i) {
+    return (Math.PI * 2 * i / N) - Math.PI / 2;
+  }
+
+  function point(i, r) {
+    const a = angle(i);
+    return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+  }
+
+  function draw(hoveredIndex) {
+    const c = getColors();
+    ctx.clearRect(0, 0, 600, 600);
+
+    // Draw background rings
+    for (let ring = 1; ring <= 10; ring++) {
+      const r = (R / 10) * ring;
+      ctx.beginPath();
+      for (let i = 0; i < N; i++) {
+        const p = point(i, r);
+        i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+      }
+      ctx.closePath();
+      ctx.strokeStyle = c.grid;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    // Draw axis spokes
+    for (let i = 0; i < N; i++) {
+      const p = point(i, R);
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(p.x, p.y);
+      ctx.strokeStyle = c.grid;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    // Filled score data shape
+    ctx.beginPath();
+    for (let i = 0; i < N; i++) {
+      const r = (axes[i].score / 10) * R;
+      const p = point(i, r);
+      i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+    }
+    ctx.closePath();
+    ctx.fillStyle = c.fill;
+    ctx.fill();
+    ctx.strokeStyle = accent;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Intersection dots
+    for (let i = 0; i < N; i++) {
+      const r = (axes[i].score / 10) * R;
+      const p = point(i, r);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, hoveredIndex === i ? 6 : 4, 0, Math.PI * 2);
+      ctx.fillStyle = accent;
+      ctx.fill();
+    }
+
+    // Fixed dynamic labels script
+    for (let i = 0; i < N; i++) {
+      const lp = point(i, R + 25); 
+      ctx.font = `500 20px monospace`;
+      ctx.fillStyle = hoveredIndex === i ? c.labelActive : c.label;
+      
+      const cos = Math.cos(angle(i));
+      if (Math.abs(cos) < 0.1) ctx.textAlign = 'center';
+      else if (cos > 0) ctx.textAlign = 'left';
+      else ctx.textAlign = 'right';
+      
+      ctx.textBaseline = 'middle';
+      ctx.fillText(axes[i].label, lp.x, lp.y);
+    }
+  }
+
+  draw(-1);
+  let currentHover = -1;
+
+  canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) * (600 / rect.width);
+    const my = (e.clientY - rect.top) * (600 / rect.height);
+
+    const dx = mx - cx;
+    const dy = my - cy;
+    let mouseAngle = Math.atan2(dy, dx);
+    
+    if (mouseAngle < 0) mouseAngle += Math.PI * 2;
+    
+    let adjustedAngle = mouseAngle + Math.PI / 2;
+    if (adjustedAngle < 0) adjustedAngle += Math.PI * 2;
+    if (adjustedAngle >= Math.PI * 2) adjustedAngle -= Math.PI * 2;
+
+    const sliceSize = (Math.PI * 2) / N;
+    let closest = Math.round(adjustedAngle / sliceSize) % N;
+
+    const distance = Math.hypot(dx, dy);
+    if (distance > R + 60 || distance < 15) {
+      closest = -1;
+    }
+
+    if (closest !== currentHover) {
+      currentHover = closest;
+      draw(closest);
+    }
+
+    const tooltip = document.getElementById('radarTooltip');
+    const detail = document.getElementById('skillDetail');
+    const detailTitle = document.getElementById('detailTitle');
+    const detailTags = document.getElementById('detailTags');
+
+    if (closest >= 0) {
+      const ax = axes[closest];
+      
+      const pDot = point(closest, (ax.score / 10) * R);
+      tooltip.style.left = (pDot.x * (rect.width / 600) + 12) + 'px';
+      tooltip.style.top = (pDot.y * (rect.height / 600) - 12) + 'px';
+      tooltip.innerHTML = `<span style="color:${accent}; font-weight:bold;">${ax.score}</span><span style="color:rgba(255,255,255,0.4)">/10</span>`;
+      tooltip.style.opacity = '1';
+
+      const containerRect = canvas.parentElement.parentElement.getBoundingClientRect();
+      const relativeX = e.clientX - containerRect.left;
+      const relativeY = e.clientY - containerRect.top;
+      
+      detail.style.left = `${relativeX}px`;
+      detail.style.top = `${relativeY}px`;
+      detail.style.opacity = '1';
+
+      detailTitle.textContent = ax.label;
+      detailTags.innerHTML = ax.tools.map(t => `
+        <div style="
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 20px;
+          padding: 6px 12px;
+          font-size: 12px;
+          color: #e0e0e0;
+        ">
+          <span style="font-size: 14px; line-height: 1;">${t.icon}</span>
+          <span>${t.name}</span>
+        </div>
+      `).join('');
+    } else {
+      tooltip.style.opacity = '0';
+      detail.style.opacity = '0';
+    }
+  });
+
+  canvas.addEventListener('mouseleave', () => {
+    currentHover = -1;
+    draw(-1);
+    document.getElementById('radarTooltip').style.opacity = '0';
+    document.getElementById('skillDetail').style.opacity = '0';
+  });
+})();
+</script>
 
 
 
+<!-- radar -->
+<div style="
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #0b0b0b00;
+  padding: 24px 48px;
+  border-top: 1px solid #383737;
+  font-family: monospace;
+  font-size: 20px;
+  color: #4a4a4a;
+  margin-top: 100px;
+">
+  <span style="font-size: larger; font-family: monospace; letter-spacing:em">Abhishek Etam &middot; 2026</span>
+  <a href="mailto:abhisheketam369@gmail.com" style="color: #4a4a4a;
+    transition: color 0.15s; font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;;">abhisheketam369@gmail.com</a>
+</div>
 
     </section>
-
     <!-- Work Section (Hidden on load) -->
     <section id="work" class="page-section">
       <h1 class="hero-title">Professional Work Experience</h1>
-      <p style="color: #8c8880; font-size: 20px; line-height: 1.6;">
+      <p style="color: #f0ece6; font-size: 20px; line-height: 1.6;">
         WORK.
       </p>
     </section>
