@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhishek.Etam | Portfolio</title>
+  <style>
+    /* 1. DEFINE VARIABLES FOR THE SYSTEM */
+    :root {
+      /* Default Dark Mode Colors */
+      --bg-color: #12110E;
+      --text-main: rgb(245, 240, 240);
+      --text-sub: #8c8880;
+      --accent-dot: rgb(204, 116, 0);
+      --nav-sub-text: white;
+    }
+
+    /* 2. FLIP VALUES FOR LIGHT MODE */
+    body.light-theme {
+      --bg-color: #f5f4f0;
+      /* Light cream background */
+      --text-main: #12110e;
+      /* Dark text */
+      --text-sub: #6e6b64;
+      /* Muted dark grey text */
+      --accent-dot: rgb(230, 90, 0);
+      /* Vibrant orange for light mode */
+      --nav-sub-text: #12110e;
+      /* Dark text for e47 brand */
+    }
+
+    /* 3. APPLY VARIABLES TO ALL ELEMENTS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Pure dark charcoal/black background fallback */
+  background-color: #0b0b0b; 
+  
+  /* The dynamic gradient mask layer */
+  background-image: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(2, 71, 145, 0.271), /* Emerald green highlight color at center */
+    transparent 30%          /* Fades out to black gracefully */
+  );
+  
+  background-attachment: fixed;
+      background-color: var(--bg-color);
+      font-family: monospace;
+      color: var(--text-main);
+      overflow-x: hidden;
+      /* This transitions ALL color properties smoothly when flipping themes */
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-name {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 40px;
+    }
+
+    .brand {
+      font-size: 30px;
+    }
+
+    .brand .name-text {
+      color: var(--text-main);
+    }
+
+    .brand .dot {
+      color: var(--accent-dot);
+      font-weight: bolder;
+      font-size: 50px;
+      line-height: 0;
+    }
+
+    .brand .sub-text {
+      color: var(--nav-sub-text);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      font-size: 25px;
+       Color: #6e6b64;
+    }
+
+    .nav-item {
+       Color: #6e6b64;
+      color: var(--text-sub);
+      text-decoration: none;
+      display: inline-block;
+      padding-bottom: 4px;
+      border-bottom: 3px solid transparent;
+      transition: color 0.5s ease, border-color 0.5s ease;
+      cursor: pointer;
+    }
+
+    .nav-item:hover,
+    .nav-item.active {
+      color: var(--text-main) !important;
+      border-bottom-color: var(--text-main) !important;
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      background: none;
+      font-size: 30px;
+      color: var(--text-sub);
+      transition: transform 0.3s ease;
+    }
+
+    .content-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Persistent Sticky Navbar: Stays the same across your entire site layout -->
+  <div style=" box-shadow: 0 2px 5px 0 rgba(106, 104, 104, 0.2); ">
+    <nav class="nav-name">
+      <div class="brand">
+        <span class="name-text">Abhishek</span><span class="dot">.</span><span class="sub-text">E</span>
+      </div>
+
+      <div class="nav-menu" style=" Color: #6e6b64;">
+        <!-- data-target ties each link tag to its respective hero container element below -->
+        <a data-target="about" class="nav-item active">about</a>
+        <a data-target="work" class="nav-item">work</a>
+        <a data-target="projects" class="nav-item">projects</a>
+        <a data-target="contact" class="nav-item">contact</a>
+        <button class="theme-toggle" style="padding-top: 1px;">◐</button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Main Variable Hero Section Wrapper Content Area -->
+  <main class="content-container">
+
+    <!-- About Section (Visible on load) -->
+    <section id="about" class="page-section active" style="padding-top:25px;">
+      <h1 class="hero-title">Abhishek Etam </h1>
+      <p style="color: #8c8880; font-size: 20px; line-height: 1.6;"></p>
+
+      <div style="font-size:xx-large;  padding-top: 5px; color: #6e6b64 ">Software Engineer & Power Apps Developer •
+        Pune</div>
+
+      <!-- Combined Layout Container -->
+      <div style="
+  display: inline-flex; 
+  align-items: center; 
+  gap: 16px; 
+  font-size: xx-large; 
+  color: #6e6b64; 
+  font-family: monospace;
+  padding-top: 23px;
+">
+        <!-- The Simplest Pulse Dot Element -->
+        <div class="pulse-dot">
+          <style>
+            .pulse-dot {
+              padding-top: 5px;
+              width: 16px;
+              height: 16px;
+              border-radius: 50%;
+              background-color: #2ec4b6;
+              /* Clean active green */
+              display: inline-block;
+              flex-shrink: 0;
+              /* Prevents the dot from squishing on small screens */
+              animation: simple-pulse 2s infinite;
+            }
+
+            @keyframes simple-pulse {
+              0% {
+                box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.7);
+              }
+
+              70% {
+                box-shadow: 0 0 0 12px rgba(46, 196, 182, 0);
+              }
+
+              100% {
+                box-shadow: 0 0 0 0 rgba(46, 196, 182, 0);
+              }
+            }
+          </style>
+        </div>
+        <!-- Your Text Content Element -->
+        <div style="padding-top: 1px; Color: #6e6b64">Currently working in Rodl & Partners. </div>
+      </div>
+
+      <!-- Main container managing the row space -->
+      <!-- Everything fully self-contained inside one clean row div wrapper -->
+      <div class="Links" style="
+  padding-top: 27px; 
+  display: flex; 
+  gap: 36px; 
+  align-items: center; 
+  font-family: monospace;
+">
+        <!-- Tiny style patch injected directly here so the hover actions work perfectly -->
+        <style>
+          .pro-link {
+            text-decoration: none;
+            color: #6e6b64;
+            font-size: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+          }
+
+          .pro-link span {
+            display: inline-block;
+            transform: rotate(-45deg);
+            font-size: 18px;
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+          }
+
+          /* Turns your exact professional orange color on hover */
+          .pro-link:hover {
+            color: rgb(255, 145, 0) !important;
+          }
+
+          /* Makes the arrow smoothly slide up and to the right on hover */
+          .pro-link:hover span {
+            opacity: 1;
+            transform: rotate(-45deg) translate(3px, -3px);
+          }
+        </style>
+
+        <!-- Individual Link Elements -->
+        <a href="https://github.com/Abhisheketam01" class="pro-link">github<span>➔</span></a>
+        <a href="https://www.linkedin.com/in/abhisheketam01" class="pro-link">linkedin<span>➔</span></a>
+        <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=abhisheketam369@gmail.com"
+          class="pro-link">email<span>➔</span></a>
+        <a href="https://x.com/selfmadeabhiii" class="pro-link">X<span>➔</span></a>
+
+      </div>
+
+      <div class="brag" style="padding-top: 100px; font-size: 30px; text-align:left; font-family: 'Lora', Georgia, 'Times New Roman', serif; line-height: 1.7;
+ ">
+        I started college wanting to understand how things actually work, not just how to use them. Two years into a CS
+        degree, that curiosity turned into building — an AI system that reads invoices and catches errors people miss,
+        <!-- yaha wo inbuilt card shurur -->
+        <!-- Drop this right into the middle of your paragraph text -->
+        <span class="inline-card-trigger" style="
+  color: rgb(204, 116, 0); 
+  text-decoration: underline; 
+  text-underline-offset: 4px; 
+  cursor: pointer; 
+  position: relative; 
+  display: inline-block;
+">
+          a chatbot
+
+          <!-- Injected local style patch so the hidden card animations work cleanly -->
+          <style>
+            .inline-card-trigger .hover-preview-card {
+              opacity: 0;
+              pointer-events: none;
+              transform: translateX(-50%) scale(0.95);
+              transition: opacity 0.2s ease, transform 0.2s ease;
+            }
+
+            .inline-card-trigger:hover .hover-preview-card {
+              opacity: 1;
+              pointer-events: auto;
+              transform: translateX(-50%) scale(1);
+            }
+          </style>
+
+          <!-- The Floating Preview Card Element itself -->
+          <span class="hover-preview-card" style="
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    width: 260px;
+    background-color: var(--bg-color, #12110E); /* Automatically updates via your light/dark system themes */
+    border: 1px solid var(--text-sub, #6e6b64);
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  ">
+            <!-- Image Asset -->
+            <!-- Swap this unsplash URL with your real local image path file later (e.g. chatbot.png) -->
+            <img src="image.png" alt="https://support-ai-seven-lake.vercel.app/"
+              href="https://support-ai-seven-lake.vercel.app/" style="
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      display: block;
+    ">
+
+            <!-- Text Specs Area -->
+            <div
+              style="font-family: monospace; font-size: 14px; font-weight: bold; color: var(--text-main, #ffffff); margin-bottom: 4px; text-align: left;">
+              chatbot ui specs
+            </div>
+            <div
+              style="font-family: monospace; font-size: 13px; color: var(--text-sub, #8c8880); line-height: 1.4; text-align: left;">
+              next.js<br>
+              Gemini Ai Model<br>
+              typescript<br>
+              embed easily.
+
+              https://support-ai-seven-lake.vercel.app/
+            </div>
+          </span>
+        </span>
+        <!-- yaha wo inbuilt card khatam -->
+        a chatbot that works across different businesses without breaking, a live dashboard that tracks weather and air
+        quality across cities in real time.
+
+
+        <br>
+
+
+        <br>
+        None of it started as a class assignment. Each one began with "I wonder if I can build this," and turned into
+        late nights debugging things I didn't fully understand yet — which, looking back, is where most of the actual
+        learning happened.
+
+        I'm still early in this — 3rd year.
+
+        <br>
+
+        <br>
+
+        more building ahead of me than behind me — but I'd rather show what I've made than talk about what I plan to
+        make. If something here catches your interest, I'd love to talk about how it was built.
+
+      </div>
+
+      <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.07); /* Clean, subtle low-opacity white line */
+      margin: 60px 0;/* Gives clean breathing room top & bottom */ 
+      width: 100% ">
+
+      </div>
+
+
+      <!-- this div is for education and all  -->
+
+      <div style="display: flex; align-items: left; box-shadow: #12110E;" >
+        <div>
+          <p style="font-size:30px; color: #6e6b64; font-family: monospace; letter-spacing: 0.1em">EDUCATION</p>
+          <br>
+
+
+
+          <br>
+
+
+          <br>
+          <p style="font-size: 30px;" >B.Tech Information Technology & CS Major. </p>
+          <p style="font-size: 25px;  Color: #6e6b64; padding-top:15px" >DPCOE, Pune · 2028</p>
+
+          <br>
+
+          <br>
+
+          <p style="font-size: 30px;" >Highschool</p>
+          <p  style="font-size: 25px;  Color: #6e6b64; padding-top:15px;" >Netaji Highschool, Pune · 2024</p>
+        </div>
+      </div>
+
+      <!-- education div end here -->
+
+      <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.07); /* Clean, subtle low-opacity white line */
+      margin: 60px 0;/* Gives clean breathing room top & bottom */ 
+      width: 100% ">
+    
+    <!-- radar -->
+  <p style="font-size: 29px; letter-spacing: 0.1em; color: #6e6b64; margin-bottom: 48px;">STACK</p>
+<!-- STACK RADAR SECTION -->
+<!-- STACK RADAR CONTAINER SECTION -->
+<div style="
+font-size: xx-large;
+  position: relative; 
+  width: 100%; 
+  max-width: 1000px; 
+  margin: 0 auto; 
+  font-family: monospace; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+">
+  <!-- Radar Area - Beautifully scaled up to 600px -->
+  <div style="position: relative; width: 600px; height: 600px; flex-shrink: 0;">
+    <canvas id="radarCanvas" width="600" height="600" style="display:block;"></canvas>
+    
+    <!-- Mini Numeric Floating Tooltip -->
+    <div id="radarTooltip" style="
+      position: absolute;
+      background: var(--bg-color, #0b0b0b);
+      border: 1px solid var(--text-main, rgba(255, 255, 255, 0.1));
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 18px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.0s ease;
+      white-space: nowrap;
+      z-index: 20;
+      color: var(--text-main, #ffffff);
+    "></div>
+  </div>
+
+  
+
+  <!-- THE SKILL DETAIL HOVER FLOATING CARD -->
+  <div id="skillDetail" style="
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(15px, 15px);
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, );
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.00);
+    border-radius: 12px;
+    padding: 20px;
+    width: 340px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.0);
+    z-index: 100;
+  ">
+
+
+
+    <p id="detailTitle" style="
+      font-size: 18px; 
+      font-weight: 600; 
+      color: #ffffff; 
+      margin: 0 0 14px 0; 
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    "></p>
+    <div id="detailTags" style="
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 8px 6px;
+    "></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const axes = [
+    { 
+      label: 'DevOps', score: 7, 
+      tools: [
+        { name: 'AWS', icon: '☁️' },
+        { name: 'Docker', icon: '🐳' },
+        { name: 'GitHub Actions', icon: '🚀' },
+        // { name: 'Linux', icon: '🐧' }
+      ] 
+    },
+    { 
+      label: 'Back-end', score: 9, 
+      tools: [
+        // { name: 'Go', icon: '🐹' },
+        { name: 'FastAPI', icon: '⚡' },
+        { name: 'Node.js', icon: '🟢' },
+        { name: 'Express', icon: '🚂' },
+        // { name: 'Flask', icon: '🌶️' },
+        { name: 'REST API', icon: '🔗' }
+      ] 
+    },
+    { 
+      label: 'Front-end', score: 8, 
+      tools: [
+        { name: 'React', icon: '⚛️' },
+        { name: 'Next.js', icon: '▲' },
+        // { name: 'Redux', icon: '🟣' },
+        { name: 'TypeScript', icon: '🔷' },
+        { name: 'JavaScript', icon: '🟨' }
+      ] 
+    },
+    { 
+      label: 'Programming', score: 9, 
+      tools: [
+        { name: 'Python', icon: '🐍' },
+        { name: 'C++', icon: '🔵' },
+        { name: 'Java', icon: '☕' },
+        // { name: 'Go', icon: '🐹' }
+      ] 
+    },
+    { 
+      label: 'Data', score: 8, 
+      tools: [
+        { name: 'MongoDB', icon: '🍃' },
+        { name: 'Postgres', icon: '🐘' },
+        { name: 'MySQL', icon: '🐬' },
+        { name: 'Redis', icon: '🟥' },
+        { name: 'ClickHouse', icon: '📊' }
+      ] 
+    }
+  ];
+
+  const canvas = document.getElementById('radarCanvas');
+  const ctx = canvas.getContext('2d');
+  
+  // ADJUSTED GEOMETRY: Center at 300, Radius scaled to 190 leaves plenty of breathing room for text labels
+  const cx = 300, cy = 300, R = 200, N = axes.length;
+  const accent = '#cc7400';
+
+  function getColors() {
+    const isDark = !document.body.classList.contains('light-theme');
+    return {
+      grid: isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,1)',
+      label: isDark ? 'rgba(255,255,255,1)' : 'rgba(0,0,0,1)',
+      labelActive: isDark ? '#ffffff' : '#000000',
+      fill: isDark ? 'rgba(204,116,0,0.2)' : 'rgba(204,116,0,0.1)',
+    };
+  }
+
+  function angle(i) {
+    return (Math.PI * 2 * i / N) - Math.PI / 2;
+  }
+
+  function point(i, r) {
+    const a = angle(i);
+    return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+  }
+
+  function draw(hoveredIndex) {
+    const c = getColors();
+    ctx.clearRect(0, 0, 600, 600);
+
+    // Draw background rings
+    for (let ring = 1; ring <= 10; ring++) {
+      const r = (R / 10) * ring;
+      ctx.beginPath();
+      for (let i = 0; i < N; i++) {
+        const p = point(i, r);
+        i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+      }
+      ctx.closePath();
+      ctx.strokeStyle = c.grid;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    // Draw axis spokes
+    for (let i = 0; i < N; i++) {
+      const p = point(i, R);
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(p.x, p.y);
+      ctx.strokeStyle = c.grid;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    // Filled score data shape
+    ctx.beginPath();
+    for (let i = 0; i < N; i++) {
+      const r = (axes[i].score / 10) * R;
+      const p = point(i, r);
+      i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+    }
+    ctx.closePath();
+    ctx.fillStyle = c.fill;
+    ctx.fill();
+    ctx.strokeStyle = accent;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Intersection dots
+    for (let i = 0; i < N; i++) {
+      const r = (axes[i].score / 10) * R;
+      const p = point(i, r);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, hoveredIndex === i ? 6 : 4, 0, Math.PI * 2);
+      ctx.fillStyle = accent;
+      ctx.fill();
+    }
+
+    // Fixed dynamic labels script
+    for (let i = 0; i < N; i++) {
+      const lp = point(i, R + 25); 
+      ctx.font = `500 20px monospace`;
+      ctx.fillStyle = hoveredIndex === i ? c.labelActive : c.label;
+      
+      const cos = Math.cos(angle(i));
+      if (Math.abs(cos) < 0.1) ctx.textAlign = 'center';
+      else if (cos > 0) ctx.textAlign = 'left';
+      else ctx.textAlign = 'right';
+      
+      ctx.textBaseline = 'middle';
+      ctx.fillText(axes[i].label, lp.x, lp.y);
+    }
+  }
+
+  // draw(-1);
+window.addEventListener('load', () => {
+  draw(-1);
+});
+  let currentHover = -1;
+
+  canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) * (600 / rect.width);
+    const my = (e.clientY - rect.top) * (600 / rect.height);
+
+    const dx = mx - cx;
+    const dy = my - cy;
+    let mouseAngle = Math.atan2(dy, dx);
+    
+    if (mouseAngle < 0) mouseAngle += Math.PI * 2;
+    
+    let adjustedAngle = mouseAngle + Math.PI / 2;
+    if (adjustedAngle < 0) adjustedAngle += Math.PI * 2;
+    if (adjustedAngle >= Math.PI * 2) adjustedAngle -= Math.PI * 2;
+
+    const sliceSize = (Math.PI * 2) / N;
+    let closest = Math.round(adjustedAngle / sliceSize) % N;
+
+    const distance = Math.hypot(dx, dy);
+    if (distance > R + 60 || distance < 15) {
+      closest = -1;
+    }
+
+    if (closest !== currentHover) {
+      currentHover = closest;
+      draw(closest);
+    }
+
+    const tooltip = document.getElementById('radarTooltip');
+    const detail = document.getElementById('skillDetail');
+    const detailTitle = document.getElementById('detailTitle');
+    const detailTags = document.getElementById('detailTags');
+
+    if (closest >= 0) {
+      const ax = axes[closest];
+      
+      const pDot = point(closest, (ax.score / 10) * R);
+      tooltip.style.left = (pDot.x * (rect.width / 600) + 12) + 'px';
+      tooltip.style.top = (pDot.y * (rect.height / 600) - 12) + 'px';
+      tooltip.innerHTML = `<span style="color:${accent}; font-weight:bold;">${ax.score}</span><span style="var(--text-main); opacity: 0.8">/10</span>`;
+      tooltip.style.opacity = '1';
+
+      const containerRect = canvas.parentElement.parentElement.getBoundingClientRect();
+      const relativeX = e.clientX - containerRect.left;
+      const relativeY = e.clientY - containerRect.top;
+      
+      detail.style.left = `${relativeX}px`;
+      detail.style.top = `${relativeY}px`;
+      detail.style.opacity = '1';
+
+      detailTitle.textContent = ax.label;
+      detailTags.innerHTML = ax.tools.map(t => `
+        <div style="
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.00);
+          border-radius: 20px;
+          padding: 6px 12px;
+          font-size: 12px;
+          color: #e0e0e0;
+        ">
+          <span style="font-size: 14px; line-height: 1;">${t.icon}</span>
+          <span>${t.name}</span>
+        </div>
+      `).join('');
+    } else {
+      tooltip.style.opacity = '0';
+      detail.style.opacity = '0';
+    }
+  });
+
+  canvas.addEventListener('mouseleave', () => {
+    currentHover = -1;
+    draw(-1);
+    document.getElementById('radarTooltip').style.opacity = '0';
+    document.getElementById('skillDetail').style.opacity = '0';
+  });
+})();
+</script>
+
+
+
+<!-- radar -->
+<div style="
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #0b0b0b00;
+  padding: 24px 48px;
+  border-top: 1px solid #383737;
+  font-family: monospace;
+  font-size: 20px;
+  color: #4a4a4a;
+  margin-top: 100px;
+">
+  <span style="font-size: larger; font-family: monospace; letter-spacing:em">Abhishek Etam &middot; 2026</span>
+  <a href="mailto:abhisheketam369@gmail.com" style="color: #4a4a4a;
+    transition: color 0.15s; font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;;">abhisheketam369@gmail.com</a>
+</div>
+
+<script>
+window.addEventListener('mousemove', (e) => {
+  // Calculates the relative X and Y positions of your mouse on the viewport
+  document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
+  document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+});
+</script>
+
+<!-- CLEAN FLOATING MUSIC TOGGLE BUTTON -->
+<div id="simple-music-player" style="
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 50px;
+  height: 50px;
+  background: var(--bg-color, #0b0b0b);
+  border: 2px solid var(--text-main, #ffffff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 999999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  user-select: none;
+">
+  <!-- Dynamic Floating Animation Styles -->
+  <style>
+    @keyframes musicBounce {
+      0%, 1% { transform: translateY(1) scale(0.1); }
+      20% { transform: translateY(-5px) scale(0.1); }
+    }
+    #simple-music-player.playing span {
+      display: inline-block;
+      animation: musicBounce 10.6s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- AUDIO CORE MODULE -->
+  <audio id="portfolioSong" src="Dear Bruce Bipolar diedlonely.mp3" loop></audio>
+
+  <!-- Simple Toggle Emoji -->
+  <span>◥◤</span>
+
+  <!-- Bulletproof Auto-Correction Fallback Tracking Script -->
+  <script>
+  (function() {
+    const wrapper = document.getElementById('simple-music-player');
+    const audio = document.getElementById('portfolioSong');
+    let retryCount = 0;
+
+    // Failover sequence paths arrays to completely bypass windows hidden renaming bugs
+    const fallbackPaths = ['audio.mp3', 'audio.mp3.mp3', './audio.mp3', 'audio.MP3'];
+
+    audio.volume = 0.5;
+
+    // Safe error recovery hook interceptor to cycle paths if the browser blocks a dead string link
+    audio.addEventListener('error', () => {
+      if (retryCount < fallbackPaths.length - 1) {
+        retryCount++;
+        audio.src = fallbackPaths[retryCount];
+        if (wrapper.classList.contains('playing')) {
+          audio.play().catch(() => {});
+        }
+      }
+    });
+
+    wrapper.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().then(() => {
+          wrapper.classList.add('playing');
+        }).catch((err) => {
+          // Absolute last resort: alert only if standard browser media playback pipeline fails completely
+          console.warn("Playback engine block check:", err);
+          alert("Click your screen background once, then tap the 🎵 to force browser track loading authorizations.");
+        });
+      } else {
+        audio.pause();
+        wrapper.classList.remove('playing');
+      }
+    });
+  })();
+  </script>
+</div>
+
+    </section>
+    <!-- Work Section (Hidden on load) -->
+    <section id="work" class="page-section">
+      <h1 class="hero-title">Professional Work Experience</h1>
+      <p style="color: #f0ece6; font-size: 20px; line-height: 1.6;">
+        WORK.
+      </p>
+    </section>
+
+    <!-- Projects Section (Hidden on load) -->
+    <section id="projects" class="page-section">
+      <h1 class="hero-title">Personal Code Repositories</h1>
+      <p style="color: #8c8880; font-size: 20px; line-height: 1.6;">
+        PROJECTS.
+      </p>
+    </section>
+
+    <!-- Photography Section (Hidden on load) -->
+    <section id="contact" class="page-section">
+      <h1 class="hero-title">CONTACT.</h1>
+      <p style="color: #8c8880; font-size: 20px; line-height: 1.6;">
+        Here.
+      </p>
+    </section>
+
+  </main>
+
+  <br style="color:white">
+
+  <!-- Lightweight State Routing Script -->
+  <!-- Lightweight State Routing with Tab Memory & Theme Memory Script -->
+  <script>
+    const navLinks = document.querySelectorAll('.nav-menu .nav-item');
+    const sections = document.querySelectorAll('.page-section');
+
+    // ========================================================
+    // NEW TAB MEMORY CODE (RUNS IMMEDIATELY ON PAGE LOAD)
+    // ========================================================
+    // Check the browser notebook to see if the user was on a specific tab before refreshing
+    const savedTab = localStorage.getItem('portfolio-tab');
+
+    if (savedTab) {
+      // 1. Remove the 'active' highlight look from the default "about" link
+      navLinks.forEach(item => item.classList.remove('active'));
+
+      // 2. Find the exact navbar link that matches our saved data-target and highlight it
+      const activeLink = document.querySelector(`.nav-menu .nav-item[data-target="${savedTab}"]`);
+      if (activeLink) activeLink.classList.add('active');
+
+      // 3. Hide the default active "about" content container section
+      sections.forEach(section => section.classList.remove('active'));
+
+      // 4. Find the matching ID content section block and reveal it on screen layout
+      const activeSection = document.getElementById(savedTab);
+      if (activeSection) activeSection.classList.add('active');
+    }
+    // ========================================================
+
+
+    // Tab content switching navigation click listener loop
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Remove active white underline look from all tabs
+        navLinks.forEach(item => item.classList.remove('active'));
+        // Add active white underline look to the clicked option tab
+        link.classList.add('active');
+
+        // Hide all content containers
+        sections.forEach(section => section.classList.remove('active'));
+
+        // Extract the matching target ID value code name
+        const targetId = link.getAttribute('data-target');
+        // Reveal the corresponding text content panel section layout
+        document.getElementById(targetId).classList.add('active');
+
+        // ========================================================
+        // NEW LINE: Save the name of the active tab to memory whenever clicked
+        // ========================================================
+        localStorage.setItem('portfolio-tab', targetId);
+      });
+    });
+
+
+    // Grab the theme toggle button element
+    const themeBtn = document.querySelector('.theme-toggle');
+
+    // Look into the browser memory notebook for a saved theme preference
+    const savedTheme = localStorage.getItem('portfolio-theme');
+
+    // If the memory says 'light', activate it right away!
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-theme');
+      themeBtn.style.transform = 'rotate(180deg)';
+    }
+
+    // Listen for a click on the theme button
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+
+      if (document.body.classList.contains('light-theme')) {
+        themeBtn.style.transform = 'rotate(180deg)';
+        localStorage.setItem('portfolio-theme', 'light');
+      } else {
+        themeBtn.style.transform = 'rotate(0deg)';
+        localStorage.setItem('portfolio-theme', 'dark');
+      }
+    });
+  </script>
+
+
+
+</body>
+
+</html>
