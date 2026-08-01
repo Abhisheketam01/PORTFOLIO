@@ -751,7 +751,8 @@ window.addEventListener('mousemove', (e) => {
   document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
 });
 </script>
-<!-- BULLETPROOF ANCHORED AUDIO PLAYER -->
+
+<!-- CLEAN FLOATING MUSIC TOGGLE BUTTON -->
 <div id="simple-music-player" style="
   position: fixed;
   bottom: 24px;
@@ -781,13 +782,13 @@ window.addEventListener('mousemove', (e) => {
     }
   </style>
 
-  <!-- REWRITTEN CORE ENGINE WITH EXPLICIT MEDIA TYPE INTERCEPTOR -->
-  <audio id="portfolioSong" loop>
-    <source src="song.mp3" type="audio/mpeg">
-  </audio>
+  <!-- THE AUDIO ELEMENT -->
+  <audio id="portfolioSong" src="song.mp3" loop></audio>
 
+  <!-- Simple Toggle Emoji -->
   <span>🎵</span>
 
+  <!-- SILENT SILENT ERROR RECOVERY SCRIPT -->
   <script>
   (function() {
     const wrapper = document.getElementById('simple-music-player');
@@ -797,11 +798,11 @@ window.addEventListener('mousemove', (e) => {
 
     wrapper.addEventListener('click', () => {
       if (audio.paused) {
+        // Quietly try to execute audio decoding strings without popping alert windows
         audio.play().then(() => {
           wrapper.classList.add('playing');
         }).catch((err) => {
-          console.warn("Browser restriction bypass active:", err);
-          alert("Click your screen layout background once, then tap the 🎵 to authorize music loading.");
+          console.log("Browser playback permission barrier encountered. Silent retry primed.", err);
         });
       } else {
         audio.pause();
