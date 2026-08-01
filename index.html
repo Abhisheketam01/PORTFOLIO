@@ -80,9 +80,11 @@
       gap: 24px;
       align-items: center;
       font-size: 30px;
+       Color: #6e6b64;
     }
 
     .nav-item {
+       Color: #6e6b64;
       color: var(--text-sub);
       text-decoration: none;
       display: inline-block;
@@ -134,13 +136,13 @@
 <body>
 
   <!-- Persistent Sticky Navbar: Stays the same across your entire site layout -->
-  <div style=" box-shadow: 0 2px 5px 0 rgba(106, 104, 104, 0.2);">
+  <div style=" box-shadow: 0 2px 5px 0 rgba(106, 104, 104, 0.2);  ">
     <nav class="nav-name">
       <div class="brand">
-        <span class="name-text">Abhishek</span><span class="dot">.</span><span class="sub-text">e47</span>
+        <span class="name-text">Abhishek</span><span class="dot">.</span><span class="sub-text">E</span>
       </div>
 
-      <div class="nav-menu">
+      <div class="nav-menu" style=" Color: #6e6b64;">
         <!-- data-target ties each link tag to its respective hero container element below -->
         <a data-target="about" class="nav-item active">about</a>
         <a data-target="work" class="nav-item">work</a>
@@ -155,53 +157,243 @@
   <main class="content-container">
 
     <!-- About Section (Visible on load) -->
-    <section id="about" class="page-section active">
-      <h1 class="hero-title">Hey, I'm Abhishek </h1>
+    <section id="about" class="page-section active" style="padding-top:25px;">
+      <h1 class="hero-title">Abhishek Etam </h1>
       <p style="color: #8c8880; font-size: 20px; line-height: 1.6;"></p>
 
-      <div style="font-size:xx-large;  padding-top: 25px; color: #938f87 "
-      >Software Engineer & Power Apps Developer • Pune</div>
+      <div style="font-size:xx-large;  padding-top: 5px; color: #6e6b64 ">Software Engineer & Power Apps Developer •
+        Pune</div>
 
-<!-- Combined Layout Container -->
-<div style="
+      <!-- Combined Layout Container -->
+      <div style="
   display: inline-flex; 
   align-items: center; 
   gap: 16px; 
   font-size: xx-large; 
-  color: #938f87; 
+  color: #6e6b64; 
   font-family: monospace;
-  padding-top: 40px;
+  padding-top: 23px;
 ">
-  <!-- The Simplest Pulse Dot Element -->
-  <div class="pulse-dot">
-    <style>
-      .pulse-dot {
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background-color: #2ec4b6; /* Clean active green */
-        display: inline-block;
-        flex-shrink: 0; /* Prevents the dot from squishing on small screens */
-        animation: simple-pulse 2s infinite;
-      }
+        <!-- The Simplest Pulse Dot Element -->
+        <div class="pulse-dot">
+          <style>
+            .pulse-dot {
+              padding-top: 5px;
+              width: 16px;
+              height: 16px;
+              border-radius: 50%;
+              background-color: #2ec4b6;
+              /* Clean active green */
+              display: inline-block;
+              flex-shrink: 0;
+              /* Prevents the dot from squishing on small screens */
+              animation: simple-pulse 2s infinite;
+            }
 
-      @keyframes simple-pulse {
-        0% {
-          box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.7);
-        }
-        70% {
-          box-shadow: 0 0 0 12px rgba(46, 196, 182, 0);
-        }
-        100% {
-          box-shadow: 0 0 0 0 rgba(46, 196, 182, 0);
-        }
-      }
-    </style>
-  </div>
+            @keyframes simple-pulse {
+              0% {
+                box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.7);
+              }
 
-  <!-- Your Text Content Element -->
-  <div>Currently working in College </div>
-</div>
+              70% {
+                box-shadow: 0 0 0 12px rgba(46, 196, 182, 0);
+              }
+
+              100% {
+                box-shadow: 0 0 0 0 rgba(46, 196, 182, 0);
+              }
+            }
+          </style>
+        </div>
+        <!-- Your Text Content Element -->
+        <div style="padding-bottom: 5px; Color: #6e6b64">Currently working from Heaven 🪽 </div>
+      </div>
+
+      <!-- Main container managing the row space -->
+      <!-- Everything fully self-contained inside one clean row div wrapper -->
+      <div class="Links" style="
+  padding-top: 27px; 
+  display: flex; 
+  gap: 36px; 
+  align-items: center; 
+  font-family: monospace;
+">
+        <!-- Tiny style patch injected directly here so the hover actions work perfectly -->
+        <style>
+          .pro-link {
+            text-decoration: none;
+            color: #6e6b64;
+            font-size: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+          }
+
+          .pro-link span {
+            display: inline-block;
+            transform: rotate(-45deg);
+            font-size: 18px;
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+          }
+
+          /* Turns your exact professional orange color on hover */
+          .pro-link:hover {
+            color: rgb(204, 116, 0) !important;
+          }
+
+          /* Makes the arrow smoothly slide up and to the right on hover */
+          .pro-link:hover span {
+            opacity: 1;
+            transform: rotate(-45deg) translate(3px, -3px);
+          }
+        </style>
+
+        <!-- Individual Link Elements -->
+        <a href="https://github.com/Abhisheketam01" class="pro-link">github<span>➔</span></a>
+        <a href="https://www.linkedin.com/in/abhisheketam01" class="pro-link">linkedin<span>➔</span></a>
+        <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=abhisheketam369@gmail.com"
+          class="pro-link">email<span>➔</span></a>
+        <a href="https://x.com/selfmadeabhiii" class="pro-link">X<span>➔</span></a>
+
+      </div>
+
+      <div class="brag" style="padding-top: 100px; font-size: 30px; text-align:left; font-family: 'Lora', Georgia, 'Times New Roman', serif; line-height: 1.7;
+ ">
+        I started college wanting to understand how things actually work, not just how to use them. Two years into a CS
+        degree, that curiosity turned into building — an AI system that reads invoices and catches errors people miss,
+        <!-- yaha wo inbuilt card shurur -->
+        <!-- Drop this right into the middle of your paragraph text -->
+        <span class="inline-card-trigger" style="
+  color: rgb(204, 116, 0); 
+  text-decoration: underline; 
+  text-underline-offset: 4px; 
+  cursor: pointer; 
+  position: relative; 
+  display: inline-block;
+">
+          a chatbot
+
+          <!-- Injected local style patch so the hidden card animations work cleanly -->
+          <style>
+            .inline-card-trigger .hover-preview-card {
+              opacity: 0;
+              pointer-events: none;
+              transform: translateX(-50%) scale(0.95);
+              transition: opacity 0.2s ease, transform 0.2s ease;
+            }
+
+            .inline-card-trigger:hover .hover-preview-card {
+              opacity: 1;
+              pointer-events: auto;
+              transform: translateX(-50%) scale(1);
+            }
+          </style>
+
+          <!-- The Floating Preview Card Element itself -->
+          <span class="hover-preview-card" style="
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    width: 260px;
+    background-color: var(--bg-color, #12110E); /* Automatically updates via your light/dark system themes */
+    border: 1px solid var(--text-sub, #6e6b64);
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  ">
+            <!-- Image Asset -->
+            <!-- Swap this unsplash URL with your real local image path file later (e.g. chatbot.png) -->
+            <img src="image.png" alt="https://support-ai-seven-lake.vercel.app/"
+              href="https://support-ai-seven-lake.vercel.app/" style="
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      display: block;
+    ">
+
+            <!-- Text Specs Area -->
+            <div
+              style="font-family: monospace; font-size: 14px; font-weight: bold; color: var(--text-main, #ffffff); margin-bottom: 4px; text-align: left;">
+              chatbot ui specs
+            </div>
+            <div
+              style="font-family: monospace; font-size: 13px; color: var(--text-sub, #8c8880); line-height: 1.4; text-align: left;">
+              next.js<br>
+              Gemini Ai Model<br>
+              typescript<br>
+              embed easily.
+
+              https://support-ai-seven-lake.vercel.app/
+            </div>
+          </span>
+        </span>
+        <!-- yaha wo inbuilt card khatam -->
+        a chatbot that works across different businesses without breaking, a live dashboard that tracks weather and air
+        quality across cities in real time.
+
+
+        <br>
+
+
+        <br>
+        None of it started as a class assignment. Each one began with "I wonder if I can build this," and turned into
+        late nights debugging things I didn't fully understand yet — which, looking back, is where most of the actual
+        learning happened.
+
+        I'm still early in this — 3rd year.
+
+        <br>
+
+        <br>
+
+        more building ahead of me than behind me — but I'd rather show what I've made than talk about what I plan to
+        make. If something here catches your interest, I'd love to talk about how it was built.
+
+      </div>
+
+      <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.07); /* Clean, subtle low-opacity white line */
+      margin: 60px 0;/* Gives clean breathing room top & bottom */ 
+      width: 100% ">
+
+      </div>
+
+
+      <!-- this div is for education and all  -->
+
+      <div style="display: flex; align-items: left;" >
+        <div>
+          <p style="font-size:30px; color: #6e6b64;">EDUCATION</p>
+          <br>
+
+          <br>
+          <p style="font-size: 30px;" >B.Tech Information Technology & CS Major. </p>
+          <p style="font-size: 22px;  Color: #6e6b64; padding-top:15px" >DPCOE, Pune · 2028</p>
+
+          <br>
+
+          <br>
+
+          <p style="font-size: 30px;" >Highschool</p>
+          <p  style="font-size: 22px;  Color: #6e6b64; padding-top:15px" >Netaji Highschool, Pune · 2024</p>
+        </div>
+      </div>
+
+      <!-- education div end here -->
+
+      <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.07); /* Clean, subtle low-opacity white line */
+      margin: 60px 0;/* Gives clean breathing room top & bottom */ 
+      width: 100% ">
+
+
+
+
+
+
 
     </section>
 
@@ -226,10 +418,12 @@
       <h1 class="hero-title">CONTACT.</h1>
       <p style="color: #8c8880; font-size: 20px; line-height: 1.6;">
         Here.
-      </p>       
+      </p>
     </section>
 
   </main>
+
+  <br style="color:white">
 
   <!-- Lightweight State Routing Script -->
   <!-- Lightweight State Routing with Tab Memory & Theme Memory Script -->
