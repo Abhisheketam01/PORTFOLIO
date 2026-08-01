@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhishek.e47 | Portfolio</title>
+  <title>Abhishek.Etam | Portfolio</title>
   <style>
     /* 1. DEFINE VARIABLES FOR THE SYSTEM */
     :root {
@@ -79,7 +79,7 @@
       display: flex;
       gap: 24px;
       align-items: center;
-      font-size: 30px;
+      font-size: 25px;
        Color: #6e6b64;
     }
 
@@ -206,7 +206,7 @@
           </style>
         </div>
         <!-- Your Text Content Element -->
-        <div style="padding-bottom: 5px; Color: #6e6b64">Currently working in Rodl & Partners. </div>
+        <div style="padding-top: 1px; Color: #6e6b64">Currently working in Rodl & Partners. </div>
       </div>
 
       <!-- Main container managing the row space -->
@@ -240,7 +240,7 @@
 
           /* Turns your exact professional orange color on hover */
           .pro-link:hover {
-            color: rgb(204, 116, 0) !important;
+            color: rgb(255, 145, 0) !important;
           }
 
           /* Makes the arrow smoothly slide up and to the right on hover */
@@ -370,16 +370,21 @@
           <p style="font-size:30px; color: #6e6b64; font-family: monospace; letter-spacing: 0.1em">EDUCATION</p>
           <br>
 
+
+
+          <br>
+
+
           <br>
           <p style="font-size: 30px;" >B.Tech Information Technology & CS Major. </p>
-          <p style="font-size: 22px;  Color: #6e6b64; padding-top:15px" >DPCOE, Pune · 2028</p>
+          <p style="font-size: 25px;  Color: #6e6b64; padding-top:15px" >DPCOE, Pune · 2028</p>
 
           <br>
 
           <br>
 
           <p style="font-size: 30px;" >Highschool</p>
-          <p  style="font-size: 22px;  Color: #6e6b64; padding-top:15px;" >Netaji Highschool, Pune · 2024</p>
+          <p  style="font-size: 25px;  Color: #6e6b64; padding-top:15px;" >Netaji Highschool, Pune · 2024</p>
         </div>
       </div>
 
@@ -418,7 +423,7 @@ font-size: xx-large;
       font-size: 18px;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.1s ease;
+      transition: opacity 0.0s ease;
       white-space: nowrap;
       z-index: 20;
       color: var(--text-main, #ffffff);
@@ -433,15 +438,15 @@ font-size: xx-large;
     pointer-events: none;
     opacity: 0;
     transform: translate(15px, 15px);
-    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, );
     background: rgba(15, 15, 15, 0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.00);
     border-radius: 12px;
     padding: 20px;
     width: 340px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.0);
     z-index: 100;
   ">
 
@@ -530,7 +535,7 @@ font-size: xx-large;
       grid: isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,1)',
       label: isDark ? 'rgba(255,255,255,1)' : 'rgba(0,0,0,1)',
       labelActive: isDark ? '#ffffff' : '#000000',
-      fill: isDark ? 'rgba(204,116,0,0.2)' : 'rgba(204,116,0,0.15)',
+      fill: isDark ? 'rgba(204,116,0,0.2)' : 'rgba(204,116,0,0.1)',
     };
   }
 
@@ -612,7 +617,10 @@ font-size: xx-large;
     }
   }
 
+  // draw(-1);
+window.addEventListener('load', () => {
   draw(-1);
+});
   let currentHover = -1;
 
   canvas.addEventListener('mousemove', (e) => {
@@ -654,7 +662,7 @@ font-size: xx-large;
       const pDot = point(closest, (ax.score / 10) * R);
       tooltip.style.left = (pDot.x * (rect.width / 600) + 12) + 'px';
       tooltip.style.top = (pDot.y * (rect.height / 600) - 12) + 'px';
-      tooltip.innerHTML = `<span style="color:${accent}; font-weight:bold;">${ax.score}</span><span style="color:rgba(255,255,255,0.4)">/10</span>`;
+      tooltip.innerHTML = `<span style="color:${accent}; font-weight:bold;">${ax.score}</span><span style="var(--text-main); opacity: 0.8">/10</span>`;
       tooltip.style.opacity = '1';
 
       const containerRect = canvas.parentElement.parentElement.getBoundingClientRect();
@@ -672,7 +680,7 @@ font-size: xx-large;
           align-items: center;
           gap: 6px;
           background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.00);
           border-radius: 20px;
           padding: 6px 12px;
           font-size: 12px;
