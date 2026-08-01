@@ -38,6 +38,20 @@
     }
 
     body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Pure dark charcoal/black background fallback */
+  background-color: #0b0b0b; 
+  
+  /* The dynamic gradient mask layer */
+  background-image: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(2, 71, 145, 0.271), /* Emerald green highlight color at center */
+    transparent 30%          /* Fades out to black gracefully */
+  );
+  
+  background-attachment: fixed;
       background-color: var(--bg-color);
       font-family: monospace;
       color: var(--text-main);
@@ -728,6 +742,92 @@ window.addEventListener('load', () => {
   <span style="font-size: larger; font-family: monospace; letter-spacing:em">Abhishek Etam &middot; 2026</span>
   <a href="mailto:abhisheketam369@gmail.com" style="color: #4a4a4a;
     transition: color 0.15s; font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;;">abhisheketam369@gmail.com</a>
+</div>
+
+<script>
+window.addEventListener('mousemove', (e) => {
+  // Calculates the relative X and Y positions of your mouse on the viewport
+  document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
+  document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+});
+</script>
+
+<!-- CLEAN FLOATING MUSIC TOGGLE BUTTON -->
+<div id="simple-music-player" style="
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 50px;
+  height: 50px;
+  background: var(--bg-color, #0b0b0b);
+  border: 2px solid var(--text-main, #ffffff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 999999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  user-select: none;
+">
+  <!-- Dynamic Floating Animation Styles -->
+  <style>
+    @keyframes musicBounce {
+      0%, 1% { transform: translateY(1) scale(0.1); }
+      20% { transform: translateY(-5px) scale(0.1); }
+    }
+    #simple-music-player.playing span {
+      display: inline-block;
+      animation: musicBounce 10.6s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- AUDIO CORE MODULE -->
+  <audio id="portfolioSong" src="C:\Users\Dell\Documents\PERSONAL-PROJECTS\PORTFOLIO\Dear Bruce   Bipolar diedlonely.mp3" loop></audio>
+
+  <!-- Simple Toggle Emoji -->
+  <span>◥◤</span>
+
+  <!-- Bulletproof Auto-Correction Fallback Tracking Script -->
+  <script>
+  (function() {
+    const wrapper = document.getElementById('simple-music-player');
+    const audio = document.getElementById('portfolioSong');
+    let retryCount = 0;
+
+    // Failover sequence paths arrays to completely bypass windows hidden renaming bugs
+    const fallbackPaths = ['audio.mp3', 'audio.mp3.mp3', './audio.mp3', 'audio.MP3'];
+
+    audio.volume = 0.5;
+
+    // Safe error recovery hook interceptor to cycle paths if the browser blocks a dead string link
+    audio.addEventListener('error', () => {
+      if (retryCount < fallbackPaths.length - 1) {
+        retryCount++;
+        audio.src = fallbackPaths[retryCount];
+        if (wrapper.classList.contains('playing')) {
+          audio.play().catch(() => {});
+        }
+      }
+    });
+
+    wrapper.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().then(() => {
+          wrapper.classList.add('playing');
+        }).catch((err) => {
+          // Absolute last resort: alert only if standard browser media playback pipeline fails completely
+          console.warn("Playback engine block check:", err);
+          alert("Click your screen background once, then tap the 🎵 to force browser track loading authorizations.");
+        });
+      } else {
+        audio.pause();
+        wrapper.classList.remove('playing');
+      }
+    });
+  })();
+  </script>
 </div>
 
     </section>
